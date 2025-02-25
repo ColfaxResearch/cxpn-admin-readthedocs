@@ -1,7 +1,7 @@
 User Management
 =====
 
-.. _user management:
+.. _usermanagement:
 
 Inviting Users
 ------------
