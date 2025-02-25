@@ -4,7 +4,7 @@ User Management
 .. _inviteusers:
 
 Inviting Users
-------------
+--------------
 
 ..
    To use Lumache, first install it using pip:
@@ -14,7 +14,7 @@ Inviting Users
       (.venv) $ pip install lumache
 
 Removing users
-----------------
+--------------
 
 ..
    To retrieve a list of random ingredients,
@@ -35,4 +35,4 @@ Removing users
    ['shells', 'gorgonzola', 'parsley']
 
 Inviting Users
-------------
+--------------
