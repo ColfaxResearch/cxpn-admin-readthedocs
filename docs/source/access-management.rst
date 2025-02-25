@@ -1,4 +1,4 @@
-User Management
+Access Management
 =====
 
 .. _inviteusers:
