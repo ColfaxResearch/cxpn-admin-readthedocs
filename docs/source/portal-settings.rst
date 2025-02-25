@@ -31,8 +31,13 @@ Instant Access Code Configurations
 ----------------------------------
 
 Default Validity Period
+^^^^^^^^^^^^^^^^^^^^^^^
+
 Default Project Access Period
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Default Reservation Duration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Colfax Connect API Configurations
 ----------------------------------
