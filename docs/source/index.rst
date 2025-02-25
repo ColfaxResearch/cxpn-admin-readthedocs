@@ -20,6 +20,6 @@ Contents
 
 .. toctree::
 
-   usage
+   user-management
    portal-settings
    api
