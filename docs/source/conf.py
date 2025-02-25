@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'CXPN Test Drive'
+copyright = '2025, Colfax'
+author = 'Colfax'
 
 release = '0.1'
 version = '0.1.0'
