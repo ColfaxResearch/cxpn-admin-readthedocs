@@ -20,6 +20,8 @@ Contents
 
 .. toctree::
 
+   get-started
    user-management
    portal-settings
    api
+   faq

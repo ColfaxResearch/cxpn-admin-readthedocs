@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'CXPN Test Drive'
+project = 'CXPN Test Drive Admin Guide'
 copyright = '2025, Colfax'
 author = 'Colfax'
 
