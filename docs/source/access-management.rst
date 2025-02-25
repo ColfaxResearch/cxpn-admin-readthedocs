@@ -1,6 +1,8 @@
 Access Management
 =====
 
+User request approved -> assign reservation time slot -> User accesses system.
+
 .. _inviteusers:
 
 Inviting Users
