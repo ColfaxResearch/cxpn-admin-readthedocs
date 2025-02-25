@@ -10,7 +10,7 @@ Welcome to Colfax's CXPN Admin documentation!
 Check out the :doc:`access-management` section for further information, including
 how the process of :ref:`inviteusers` to the test drive works.
 
-For information on how to custom more granulator controlers of the portal check out :doc:`settings`.
+For information on how to custom more granulator controls of the portal check out :doc:`settings`.
 
 .. note::
 
