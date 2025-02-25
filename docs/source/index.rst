@@ -6,8 +6,10 @@ that creates recipes mixing random ingredients.
 It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
 and offers a *simple* and *intuitive* API.
 
-Check out the :doc:`usage` section for further information, including
+Check out the :doc:`user-management` section for further information, including
 how to :ref:`user management` the project.
+
+For information on how to custom more granulator controlers of the portal check out :doc:`settings`.
 
 .. note::
 
@@ -19,4 +21,5 @@ Contents
 .. toctree::
 
    usage
+   portal-settings
    api

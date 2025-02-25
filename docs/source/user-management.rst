@@ -1,9 +1,9 @@
-Usage
+User Management
 =====
 
 .. _user management:
 
-Add Users
+Inviting Users
 ------------
 
 To use Lumache, first install it using pip:
@@ -32,3 +32,5 @@ For example:
 >>> lumache.get_random_ingredients()
 ['shells', 'gorgonzola', 'parsley']
 
+Inviting Users
+------------
