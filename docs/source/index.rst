@@ -7,7 +7,7 @@ It pulls data from the `Open Food Facts database <https://world.openfoodfacts.or
 and offers a *simple* and *intuitive* API.
 
 Check out the :doc:`user-management` section for further information, including
-how to :ref:`usermanagement` the project.
+how to :ref:`inviteusers` the project.
 
 For information on how to custom more granulator controlers of the portal check out :doc:`settings`.
 
