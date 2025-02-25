@@ -1,9 +1,9 @@
 Usage
 =====
 
-.. _installation:
+.. _user management:
 
-Installation
+Add Users
 ------------
 
 To use Lumache, first install it using pip:
@@ -12,7 +12,7 @@ To use Lumache, first install it using pip:
 
    (.venv) $ pip install lumache
 
-Creating recipes
+Removing users
 ----------------
 
 To retrieve a list of random ingredients,
