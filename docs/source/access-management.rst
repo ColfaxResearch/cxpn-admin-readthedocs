@@ -5,10 +5,9 @@ User request approved -> assign reservation time slot -> User accesses system.
 
 .. mermaid::
 
-   graph TD;
-       A --> B;
-       B --> C;
-       C --> D;
+   graph LR;
+       User request approved --> assign reservation time slot;
+       assign reservation time slot --> User accesses system;
 
 .. _inviteusers:
 
