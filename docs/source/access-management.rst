@@ -4,11 +4,12 @@ Access Management
 User request approved -> assign reservation time slot -> User accesses system.
 
 .. mermaid::
-   flowchart LR;
-      A[Hard] -->|Text| B(Round)
-      B --> C{Decision}
-      C -->|One| D[Result 1]
-      C -->|Two| E[Result 2]
+   graph TD;
+       A(Start) --> B{Decision};
+       B -->|Yes| C[Process 1];
+       B -->|No| D[Process 2];
+       C --> E[End];
+       D --> E;
 
 .. _inviteusers:
 
