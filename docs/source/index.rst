@@ -7,8 +7,10 @@ Welcome to Colfax's CXPN Admin documentation!
    It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
    and offers a *simple* and *intuitive* API.
 
-Check out the :doc:`access-management` section for further information, including
-how the process of :ref:`inviteusers` to the test drive works.
+Check out the :doc:`get-started` section to get a primer on all of features and settings available to you as an admin. :doc:`access-management` contains details on how to manage your users like how to :ref:`inviteusers`  or :ref:`removeusers` and server assets.
+
+.. 
+   how the process of :ref:`inviteusers` to the test drive works.
 
 For information on how to custom more granulator controls of the portal check out :doc:`settings`.
 
