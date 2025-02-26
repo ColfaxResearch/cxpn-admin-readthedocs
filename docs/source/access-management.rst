@@ -1,12 +1,19 @@
 Access Management
-=====
+=================
 
 User request approved -> assign reservation time slot -> User accesses system.
 
+.. mermaid::
+   flowchart LR;
+      A[Hard] -->|Text| B(Round)
+      B --> C{Decision}
+      C -->|One| D[Result 1]
+      C -->|Two| E[Result 2]
+
 .. _inviteusers:
 
-Inviting Users
---------------
+Invite Users
+------------
 
 ..
    To use Lumache, first install it using pip:
@@ -15,8 +22,11 @@ Inviting Users
 
       (.venv) $ pip install lumache
 
-Removing users
---------------
+
+.. _removeusers:
+
+Remove Users
+------------
 
 ..
    To retrieve a list of random ingredients,
@@ -36,5 +46,6 @@ Removing users
    >>> lumache.get_random_ingredients()
    ['shells', 'gorgonzola', 'parsley']
 
-Inviting Users
---------------
+
+Manually Start Reserveration for a User
+---------------------------------------
