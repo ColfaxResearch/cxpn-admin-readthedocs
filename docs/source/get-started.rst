@@ -21,9 +21,6 @@ The **Infrastructure** section allows you to monitor your server assets along wi
 
 The sections below contain detailed breakdown of each menu category and its key functions.
 
-.. image:: /images/nav.png
-  :alt: Test drive portal menu items.
-
 Plugin
 ------
 
