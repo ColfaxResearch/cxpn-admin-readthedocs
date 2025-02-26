@@ -4,12 +4,11 @@ Access Management
 User request approved -> assign reservation time slot -> User accesses system.
 
 .. mermaid::
+
    graph TD;
-       A(Start) --> B{Decision};
-       B -->|Yes| C[Process 1];
-       B -->|No| D[Process 2];
-       C --> E[End];
-       D --> E;
+       A --> B;
+       B --> C;
+       C --> D;
 
 .. _inviteusers:
 
