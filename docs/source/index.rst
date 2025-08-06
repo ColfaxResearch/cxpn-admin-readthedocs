@@ -25,6 +25,7 @@ Contents
 
    get-started
    access-management
+   server-management
    portal-settings
    api
    faq
