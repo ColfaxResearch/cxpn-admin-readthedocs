@@ -12,7 +12,7 @@ Check out the :doc:`get-started` section to get a primer on all of features and 
 .. 
    how the process of :ref:`inviteusers` to the test drive works.
 
-For information on how to custom more granulator controls of the portal check out :doc:`settings`.
+For information on how to customize more granular controls of the portal, check out :doc:`portal-settings`.
 
 .. note::
 
