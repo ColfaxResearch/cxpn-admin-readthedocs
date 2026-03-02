@@ -48,3 +48,13 @@ Remove Users
 
 Manually Start Reserveration for a User
 ---------------------------------------
+
+Set Non-default User Project Access Duration
+--------------------------------------------
+
+Use this workflow when a user needs a project access period that differs from the project default.
+
+Set Non-default User Server Reservation Duration
+------------------------------------------------
+
+Use this workflow when a user needs a reservation duration that differs from the default reservation duration.
