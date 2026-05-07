@@ -330,7 +330,7 @@ Verify your keys in **Google reCAPTCHA Secrets** and ensure the domain is regist
 
 Can I disable reCAPTCHA?
 ~~~~~~~~~~~~~~~~~~~~~~~~
-reCAPTCHA is mandatory for public registration endpoints. Leaving the Site Key or Secret Key empty will cause settings validation to fail. If you need to disable bot protection, you would need to modify the plugin code directly, which is not recommended.
+reCAPTCHA is mandatory for public registration endpoints. Leaving the Site Key or Secret Key empty will cause settings validation to fail. It is not possible to disable bot protection through the admin interface.
 
 Changelog
 ---------
