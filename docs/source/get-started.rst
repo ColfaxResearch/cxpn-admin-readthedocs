@@ -26,20 +26,119 @@ Plugin
 
 Settings
 ^^^^^^^^
-The Settings page is your central configuration hub. Access it by clicking the **Colfax Connect** menu item in the WordPress admin sidebar. This page is organized into collapsible sections covering all aspects of portal behavior:
+The Settings page is your central configuration hub. Access it by clicking the **Colfax Connect** menu item in the WordPress admin sidebar. The page is organized into collapsible sections. Each section can be expanded or collapsed by clicking its header.
 
-* **Project's Generic Configurations** -- Portal name, default access periods, reservation durations, hardware group assignments, and email domain blacklisting
-* **Instant Access Code Configurations** -- Default validity periods and access parameters for event-based instant access codes
-* **Colfax Connect API Configurations** -- JWT credentials and API URLs for connecting to Colfax backend services (database, reservation, infrastructure, SMTP, etc.)
-* **Securely Exposed REST APIs** -- JWT credentials for external client integration
-* **Google reCAPTCHA Secrets** -- Site and secret keys for bot protection on registration forms
-* **Email Notification Configurations** -- Sender address, subject lines, and HTML body templates for all notification types
-* **User Registration Emails** -- Admin notification and user confirmation templates
-* **Project Access Emails** -- Approval, rejection, deactivation warning, deactivation, and revocation templates
-* **Reservation Emails** -- Activation, deactivation warning, and deactivation templates
-* **User Feedback Emails** -- Subject and body templates for post-session feedback notifications
+Project Configuration
+"""""""""""""""""""""
 
-Each email template includes a **Test** button that sends a sample email so you can verify formatting and placeholder substitution before deploying changes.
+These settings define the portal's identity, default access behavior, and security constraints.
+
+**Portal Project Name** -- The display name for your test drive project. Appears in the portal header, admin bar, and all email notifications. Also used to identify the project in API calls to external Colfax services.
+
+**Custom Header Code (HTML)** -- Inject custom CSS or HTML into the ``<head>`` of every portal page. Use this for branding overrides, analytics scripts, or custom styling without modifying theme files.
+
+**One Time Access (OTA)** -- Toggle that controls whether users can make multiple reservations during their access period. When enabled, users may only reserve a seat once before their access concludes. When disabled, users can make repeated reservations until their access end date.
+
+**Default Project Access Period** -- Number of days a user has access after registration approval. Applies to all new registrations unless overridden per user.
+
+**Default Reservation Duration** -- Number of hours allocated for each individual system reservation. Admins can override this per user when processing registration requests.
+
+**Default Allowed Hardware Group** -- Comma-separated list of hardware groups assigned to new users upon approval. If left empty, the user may reserve from any available group.
+
+**Default Reservation HW Group** -- The hardware group pre-selected in the reservation form when a user books a system.
+
+**Blacklist Email Domains** -- Comma-separated list of email domains restricted from registration. Domains are entered without the ``@`` symbol (e.g., ``example.com,spam.org``).
+
+Instant Access Code Defaults
+""""""""""""""""""""""""""""
+
+Default parameters for instant access codes. Individual codes can override these at creation time.
+
+**Default Validity Period** -- Number of days an instant access code remains valid from creation. Users must redeem within this window.
+
+**Default Project Access Period** -- Number of days of access granted when a code is redeemed.
+
+**Default Reservation Duration** -- Number of hours allocated per reservation for code-redemption users.
+
+API Configuration
+"""""""""""""""""
+
+Credentials and endpoints for connecting to Colfax backend services. All communication uses JWT (HS256) authentication.
+
+**API ISS / API ISS Secret** -- JWT issuer and signing secret for Colfax Connect API authentication.
+
+**Project API ISS / Project API ISS Secret** -- JWT issuer and signing secret for project-specific API calls.
+
+**DB API URL** -- Base URL for the Colfax database API. Used for account provisioning and access management.
+
+**Email Validation API URL** -- External service for email address validation during registration.
+
+**Reservation API URL** -- Base URL for reservation management.
+
+**Infrastructure API URL** -- Base URL for seat status, hardware groups, and infrastructure queries.
+
+**Seat Connected Systems API URL** -- Base URL for connected system management.
+
+**SMTP API URL** -- Base URL for the email delivery service.
+
+REST API Authentication
+"""""""""""""""""""""""
+
+JWT credentials for external clients integrating with the portal's REST endpoints. Two tiers are supported:
+
+**JWT Issuer (Colfax Services) / JWT Secret (Colfax Services)** -- For internal Colfax service-to-service authentication.
+
+**JWT Issuer (Client) / JWT Secret (Client)** -- For external client applications.
+
+**JWT Token Validity** -- Maximum age in seconds that a JWT token is accepted from its issuance time.
+
+reCAPTCHA
+"""""""""
+
+**Site Key** -- Google reCAPTCHA site key displayed to users on the registration form.
+
+**Secret Key** -- Server-side secret key used to verify user responses.
+
+Email Management
+""""""""""""""""
+
+Configure sender identity, subject lines, and HTML body templates for all notification types. Every email template field includes a **Test** button to send a sample email before deploying changes.
+
+**Generic Email Notification** -- Base settings for all outgoing emails:
+
+- **Email Send From** -- Sender email address
+- **Email Send From (Name)** -- Sender display name
+- **Email Subject** -- Default subject line
+- **Email's HTML Body (Project Topic)** -- Project name inserted into email bodies
+- **Receiver's Email Address (TEST)** -- Address used for template test sends
+
+**User Registration Emails** -- Templates triggered when a new registration is submitted:
+
+- **Admin's Email Address** -- Receives notification of each new registration
+- **New Registration Email Subject** -- Subject line for registration notifications
+- **Admin Notification HTML Body** -- Template sent to admin
+- **User Confirmation HTML Body** -- Template sent to the registering user
+
+**Project Access Emails** -- Templates for access lifecycle events:
+
+- **Access Approval Email HTML Body** -- Sent when a registration is approved
+- **Access Rejection Email HTML Body** -- Sent when a registration is denied
+- **Access Deactivation Warning HTML Body** -- Sent before access expires
+- **Access Deactivation Email HTML Body** -- Sent when access ends
+- **Access Revoke Email HTML Body** -- Sent when admin revokes access
+- **Access Expiration Warning Time (Hours)** -- Hours before expiry to send warning. Leave empty to disable.
+
+**Reservation Emails** -- Templates for reservation lifecycle events:
+
+- **Reservation Activation Email HTML Body** -- Sent when a reservation is activated
+- **Reservation Deactivation Warning HTML Body** -- Sent before a reservation expires
+- **Reservation Deactivation Email HTML Body** -- Sent when a reservation ends
+- **Reservation Expiration Warning Time (Hours)** -- Hours before expiry to send warning. Disabled if OTA is enabled.
+
+**User Feedback Emails** -- Templates triggered when a user submits post-session feedback:
+
+- **User Feedback Email HTML Subject** -- Subject line for feedback notifications
+- **User Feedback Email HTML Body** -- Template with placeholders for ``[FEEDBACK]``, ``[SEAT]``, ``[RESERVATION_ID]``, ``[USEREMAIL]``, and ``[READY]``
 
 User Registration
 -----------------
