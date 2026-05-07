@@ -13,8 +13,8 @@ This workflow covers approving a new user's registration request in the admin pa
 
 .. mermaid::
 
-   graph LR
-       A[Login to Admin Panel] --> B[Navigate to<br>Manage Requests]
+   graph TD
+       A[Login to Admin Panel] --> B[Navigate to Manage Requests]
        B --> C[Find PENDING request]
        C --> D[Click Review]
        D --> E[Click Approve]
@@ -33,8 +33,8 @@ This workflow covers terminating a user's access to the test drive portal.
 
 .. mermaid::
 
-   graph LR
-       A[Login to Admin Panel] --> B[Navigate to<br>Project Access]
+   graph TD
+       A[Login to Admin Panel] --> B[Navigate to Project Access]
        B --> C[Find user in table]
        C --> D[Click End Access]
        D --> E[Access terminated]
@@ -52,8 +52,8 @@ This workflow covers extending a user's project access period beyond the default
 
 .. mermaid::
 
-   graph LR
-       A[Login to Admin Panel] --> B[Navigate to<br>Project Access]
+   graph TD
+       A[Login to Admin Panel] --> B[Navigate to Project Access]
        B --> C[Find user in table]
        C --> D[Click Edit]
        D --> E[Set new End Date]
@@ -74,11 +74,11 @@ This workflow covers changing the reservation duration for a specific user.
 
 .. mermaid::
 
-   graph LR
-       A[Login to Admin Panel] --> B[Navigate to<br>Manage Requests]
+   graph TD
+       A[Login to Admin Panel] --> B[Navigate to Manage Requests]
        B --> C[Find user in table]
        C --> D[Click Edit]
-       D --> E[Set new<br>Reservation Duration]
+       D --> E[Set new Reservation Duration]
        E --> F[Click Update]
        F --> G[Duration updated]
 
@@ -96,13 +96,13 @@ This workflow covers creating an instant access code for an event.
 
 .. mermaid::
 
-   graph LR
-       A[Login to Admin Panel] --> B[Navigate to<br>Instant Access Codes]
+   graph TD
+       A[Login to Admin Panel] --> B[Navigate to Instant Access Codes]
        B --> C[Click Add New]
        C --> D[Fill in code details]
        D --> E[Click Save]
        E --> F[Code created]
-       F --> G[Distribute code<br>to users]
+       F --> G[Distribute code to users]
 
 Steps:
 
@@ -118,11 +118,11 @@ This workflow covers modifying the hardware group assigned to an existing user.
 
 .. mermaid::
 
-   graph LR
-       A[Login to Admin Panel] --> B[Navigate to<br>Project Access]
+   graph TD
+       A[Login to Admin Panel] --> B[Navigate to Project Access]
        B --> C[Find user in table]
        C --> D[Click Edit]
-       D --> E[Select new<br>Hardware Group]
+       D --> E[Select new Hardware Group]
        E --> F[Click Update]
        F --> G[Group updated]
 
@@ -140,8 +140,8 @@ This workflow covers denying a pending registration request.
 
 .. mermaid::
 
-   graph LR
-       A[Login to Admin Panel] --> B[Navigate to<br>Manage Requests]
+   graph TD
+       A[Login to Admin Panel] --> B[Navigate to Manage Requests]
        B --> C[Find PENDING request]
        C --> D[Click Review]
        D --> E[Click Reject]
