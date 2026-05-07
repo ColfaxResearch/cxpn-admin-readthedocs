@@ -1,7 +1,7 @@
 API
 ===
 
-The WP Colfax Connect plugin exposes REST API endpoints through the WordPress REST API infrastructure. All endpoints are prefixed with ``/wp-json/`` and fall into three categories:
+The WP Colfax Connect plugin exposes REST API endpoints through the WordPress REST API infrastructure. All endpoints are prefixed with ``/wp-json/`` and fall into two categories:
 
 .. mermaid::
 
@@ -11,7 +11,6 @@ The WP Colfax Connect plugin exposes REST API endpoints through the WordPress RE
        end
        subgraph WordPress Plugin
            B[JWT Validation]
-           C[Internal Endpoints<br>private/*]
            D[Client Endpoints<br>external/v1/*]
            E[Service Endpoints<br>cc-template/v1/*,<br>cc-user-registration/v1/*]
        end
@@ -22,26 +21,20 @@ The WP Colfax Connect plugin exposes REST API endpoints through the WordPress RE
            I[SMTP API]
        end
        A -->|JWT auth| D
-       C -->|X-User header| F
        D -->|JWT auth| F
        E -->|Colfax JWT| F
-       B --> C
        B --> D
        B --> E
 
 Authentication
 --------------
 
-The plugin supports two authentication mechanisms depending on the endpoint category:
-
-1. **X-User Header Authentication** -- Used for internal/private endpoints. The client includes an ``X-User`` header containing the user's EID (unique identifier). Some endpoints also accept an ``X-Email`` header for email-based identification.
-
-2. **JWT Bearer Token Authentication** -- Used for external client endpoints and Colfax service endpoints. The client includes an ``Authorization: Bearer <token>`` header. The token is validated against the configured JWT issuer and secret.
+All external API endpoints use JWT Bearer Token Authentication. The client includes an ``Authorization: Bearer <token>`` header. The token is validated against the configured JWT issuer and secret.
 
 JWT tokens use the HS256 algorithm. Two JWT credential pairs are configured in the plugin settings:
 
-* **Colfax Services JWT** -- For internal Colfax service-to-service communication
-* **Client JWT** -- For external client applications
+* **Colfax Services JWT** -- For internal Colfax service-to-service communication (used by ``cc-template/v1/*`` and ``cc-user-registration/v1/*`` endpoints)
+* **Client JWT** -- For external client applications (used by ``external/v1/*`` endpoints)
 
 The JWT token validity window (in seconds) is also configurable and determines how recently a token must have been issued to be accepted.
 
@@ -65,93 +58,6 @@ External API endpoints return responses in a standardized JSON format:
 * ``timestamp`` -- Server timestamp in the configured WordPress timezone
 
 All external API requests are logged to the ``wp_cc_external_api_logs`` table with the endpoint, method, request data, status code, response data, client IP, and timestamp.
-
-Internal (Private) Endpoints
-----------------------------
-
-These endpoints require ``X-User`` header authentication and are used by the portal's frontend JavaScript.
-
-Reservation API
-^^^^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 20 15 65
-   :header-rows: 1
-
-   * - Endpoint
-     - Method
-     - Description
-   * - ``/private/cc-reservation/v1/book``
-     - POST
-     - Create or update a reservation. Accepts ``slot_id`` and optional ``hw_group`` in POST body. Validates slot timestamp (max 5-minute staleness), checks for existing reservations, and provisions via the reservation API.
-   * - ``/private/cc-reservation/v1/book``
-     - DELETE
-     - Delete a reservation. Accepts ``reservation_id`` as a query parameter.
-
-User Registration API
-^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 20 15 65
-   :header-rows: 1
-
-   * - Endpoint
-     - Method
-     - Description
-   * - ``/cc-forms/v1/process``
-     - POST
-     - Public registration endpoint. No authentication required. Performs reCAPTCHA validation, form validation, duplicate check, email validation, and blacklist check.
-   * - ``/private/cc-forms/v1/process``
-     - POST
-     - Private registration endpoint. Requires ``X-User`` header. Same processing as public endpoint but with pre-authenticated user context.
-
-SSH Keys API
-^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 20 15 65
-   :header-rows: 1
-
-   * - Endpoint
-     - Method
-     - Description
-   * - ``/private/cc-sshkeys/v1/add_ssh``
-     - POST
-     - Add an SSH key to the current user's account.
-   * - ``/private/cc-sshkeys/v1/delete_ssh``
-     - GET
-     - Delete an SSH key from the current user's account.
-
-User Feedback API
-^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 20 15 65
-   :header-rows: 1
-
-   * - Endpoint
-     - Method
-     - Description
-   * - ``/private/cc-user-feedback/v1/submit``
-     - POST
-     - Submit post-session feedback. Accepts ``feedback`` (text) and ``ready`` (boolean) in request body. Sends email notification to admin, then deletes the active reservation.
-
-Access Status API
-^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 20 15 65
-   :header-rows: 1
-
-   * - Endpoint
-     - Method
-     - Description
-   * - ``/private/access/login``
-     - GET
-     - Validate user access login. Requires ``X-User`` header.
-   * - ``/private/access/status``
-     - GET
-     - Get user's project access status. Returns ``active``, ``requested``, ``approved``, or ``null``.
 
 External Client Endpoints
 -------------------------

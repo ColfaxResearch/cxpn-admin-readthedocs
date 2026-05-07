@@ -127,7 +127,7 @@ API Integration
 
 How do I authenticate API requests?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Internal endpoints use the ``X-User`` header with the user's EID. External endpoints use JWT Bearer tokens in the ``Authorization`` header. JWT credentials are configured in the **Securely Exposed REST APIs** settings section.
+All external API endpoints use JWT Bearer tokens in the ``Authorization`` header. JWT credentials are configured in the **Securely Exposed REST APIs** settings section.
 
 Where can I view API request logs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
