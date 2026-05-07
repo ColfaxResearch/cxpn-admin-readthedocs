@@ -20,5 +20,6 @@ Contents
    access-management
    server-management
    portal-settings
+   workflow-examples
    api
    faq
