@@ -164,7 +164,34 @@ Instant Access Codes
 
 How do I create an instant access code?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Navigate to **User Registration > Instant Access Codes** in the admin panel, click **Add New**, and fill in the code details including event name, validity period, access period, reservation duration, hardware group, max users, one-time access toggle, whitelisted email domains, and description.
+Navigate to **User Registration > Instant Access Codes** in the admin panel, click **Add New**, and fill in the code details:
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Field
+     - Description
+   * - **Event Name**
+     - Label for the event or session
+   * - **Project Name**
+     - Associated project
+   * - **Validity Period**
+     - Date range during which the code can be used
+   * - **Access Period**
+     - Number of days of access granted upon use
+   * - **Reservation Duration**
+     - Hours allocated per reservation
+   * - **Hardware Group**
+     - Which hardware group(s) the user can reserve
+   * - **Max Users**
+     - Maximum number of redemptions allowed
+   * - **One-Time Access**
+     - Whether the user can only reserve once
+   * - **Whitelist Email Domains**
+     - Restrict usage to specific email domains
+   * - **Description**
+     - Notes about the code's purpose
 
 Why is my instant access code showing as invalid?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
