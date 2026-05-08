@@ -275,6 +275,27 @@ How do users add SSH keys?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 Users manage their own SSH keys through the portal's SSH Keys page, powered by the ``[cc-list-of-ssh-keys]`` shortcode. The page displays an accordion-style interface where users can upload new keys and delete existing ones. Keys are stored and managed through the external Colfax DB API.
 
+Why am I getting an SSH "REMOTE HOST IDENTIFICATION HAS CHANGED" error?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When a user has requested access to multiple nodes, or a node that has been reprovisioned, they may encounter the following SSH error when connecting:
+
+.. code-block:: text
+
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+   ...
+   Host key verification failed.
+
+This happens when the expected host key fingerprint changes -- for example, when a system is re-imaged, reassigned, or when the user switches to a different node. To resolve the issue, run the ``ssh-keygen -f`` command shown in the error output to remove the stale entry from the user's ``known_hosts`` file. For example:
+
+.. code-block:: bash
+
+   ssh-keygen -f '/home/user/.ssh/known_hosts' -R 'hostname'
+
+After removing the stale entry, the user can reconnect and accept the new host key.
+
 Shortcodes
 ----------
 

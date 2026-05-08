@@ -6,8 +6,8 @@ Step-by-step workflows with UI diagrams for common admin tasks.
 User Management
 ---------------
 
-How to Add a User
-~~~~~~~~~~~~~~~~~
+How to Approve a User Access Request
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This workflow covers approving a new user's registration request in the admin panel.
 
@@ -24,6 +24,35 @@ Steps:
 1. Navigate to **User Registration > Manage Requests** in the admin panel. The new request appears with status ``PENDING``.
 2. Click **Review** to inspect the full registration details, including all submitted metadata fields.
 3. Click **Approve** to grant the user access. The request status changes to ``APPROVED`` and the user receives an approval email.
+
+How to Add a User Manually
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This workflow covers manually creating a new user registration entry in the admin panel, bypassing the public registration form. This is useful when onboarding users directly or when the public form is unavailable.
+
+.. mermaid::
+
+   graph TD
+       A[Navigate to Manage Requests] --> B[Click Add New User]
+       B --> C[Fill in user details]
+       C --> D[Set request status]
+       D --> E[Click Save]
+       E --> F[User added to table]
+
+Steps:
+
+1. Navigate to **User Registration > Manage Requests** in the admin panel.
+2. Click **Add New User** to open the manual registration form.
+3. Fill in the user's details:
+   - **Email Address** -- The user's email address
+   - **First Name** -- The user's first name
+   - **Last Name** -- The user's last name
+   - **Organization** -- The user's organization or company
+   - **Country** -- The user's country
+   - **Purpose** -- The reason for the user's access request
+4. Set the **Request Status** to ``PENDING`` (for admin review later) or ``APPROVED`` (to grant immediate access).
+5. Click **Save**. The user entry is added to the Manage Requests table with the specified status.
+6. If set to ``APPROVED``, the user's project access is provisioned immediately and they receive an approval email. If set to ``PENDING``, the entry awaits review like a normal registration request.
 
 How to Remove a User
 ~~~~~~~~~~~~~~~~~~~~
